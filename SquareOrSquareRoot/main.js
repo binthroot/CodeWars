@@ -4,14 +4,11 @@
 var assert = require("assert");
 
 function squareOrSquareRoot(numberArray) {
-  const newArray = numberArray.map((number) => {
-    if (Math.sqrt(number) % 1 === 0) {
-      Math.sqrt(number);
-    } else {
-      Math.pow(number, 2);
-    }
+  return numberArray.map((number) => {
+    return Math.sqrt(number) % 1 === 0
+      ? Math.sqrt(number)
+      : Math.pow(number, 2);
   });
-  return newArray;
 }
 
 const simple = (array) => {
@@ -19,9 +16,9 @@ const simple = (array) => {
 };
 
 let input = [4, 3, 9, 7, 2, 1];
-let expected = [2, 9, 3, 49, 4, 1];
-// assert.equal(squareOrSquareRoot(input), expected);
+let output = [2, 9, 3, 49, 4, 1];
+expected(squareOrSquareRoot(input)).toEqual(output);
 
 input = [1, 2, 3];
-expected = [2, 4, 6];
-assert.equal(simple(input), expected);
+output = [2, 4, 6];
+assert.equal(simple(input), output);
