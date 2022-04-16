@@ -23,14 +23,14 @@
 // (Condition 2) not fulfilled).
 
 function bouncingBall(h, bounce, window) {
-  if (bounce >= 1) return -1;
-  let newHeight = height * bounce;
-  let sum = 1;
+  if (bounce <= 0 || bounce >= 1 || h <= window) return -1;
+  let newHeight = h * bounce;
+  let sum = 0;
   if (newHeight > window) {
     sum += 2;
     return sum + bouncingBall(newHeight, bounce, window);
   } else {
-    return 0;
+    return 1;
   }
 }
 
