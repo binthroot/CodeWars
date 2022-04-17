@@ -10,22 +10,24 @@
 // [1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
 
 function findOdd(array) {
+  let oddDuck;
   let mySet = new Set(array);
   mySet.forEach((element) => {
-    console.log(
-      `Element is ${element} and has length  ${
-        array.filter((number) => number === element).length
-      }`
-    );
+    // console.log(
+    //   `Element is ${element} and has length  ${
+    //     array.filter((number) => number === element).length
+    //   }`
+    // );
     if (array.filter((number) => number === element).length % 2 !== 0) {
-      console.log(element);
-      return element;
+      //   console.log(element);
+      oddDuck = element;
     }
   });
+  return oddDuck;
 }
 
 let myArray = [2, 2, 2, 2, 6, 6, 6];
-findOdd(myArray);
+console.log(findOdd(myArray));
 
 myArray = [20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5];
-findOdd(myArray);
+console.log(findOdd(myArray));
