@@ -11,23 +11,12 @@
 
 function descendingOrder(num) {
   //split number in an array of numbers
-  let array = ("" + num).split("");
-  console.log(array);
-  array = array.map((digit) => {
-    parseInt(digit);
-  });
-  console.log(array);
-
-  array.sort((a, b) => {
-    return a - b;
-  });
+  return Number(
+    ("" + num)
+      .split("")
+      .map((digit) => parseInt(digit))
+      .sort()
+      .reverse()
+      .join("")
+  );
 }
-
-console.log(descendingOrder(213432553253253243));
-
-// sorting numbers using .sort example
-const numbers = [4, 2, 5, 1, 3];
-numbers.sort(function (a, b) {
-  return a - b;
-});
-console.log(numbers);
