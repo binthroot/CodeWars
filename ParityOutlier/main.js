@@ -22,23 +22,36 @@
 // filter array by the opposite value, leaving one value left over
 
 const parityOutlierFinder = (array) => {
-  let even = 0;
-  let odd = 0;
+  //   let even = 0;
+  //   let odd = 0;
 
-  [array[0], array[1], array[2]].forEach((element) =>
-    array % 2 === 0 ? even++ : odd++
-  );
+  //   [array[0], array[1], array[2]].forEach((element) =>
+  //     array % 2 === 0 ? even++ : odd++
+  //   );
 
-  array.filter((element) => {
-    if (even > odd) {
-      return element % 2 === 0;
-    } else {
-      return element % 2 > 0;
-    }
-  });
+  //   // this is a better way to do above
+  //   array.slice(0,3).filter(isEven).length >= 2 ?
+  //     array.find(isEven) : array.find(isOdd);
 
-  return array[0];
+  //   array.filter((element) => {
+  //     if (even > odd) {
+  //       return element % 2 === 0;
+  //     } else {
+  //       return element % 2 > 0;
+  //     }
+  //   });
+
+  //   return array[0];
+
+  // this is a better way to do above using the .find built in method and two helper functions
+  return array.slice(0, 3).filter(isEven).length >= 2
+    ? array.find(isOdd)
+    : array.find(isEven);
 };
+
+const isEven = (num) => num % 2 === 0;
+
+const isOdd = (num) => !isEven(num);
 
 console.log(parityOutlierFinder([2, 4, 0, 100, 4, 11, 2602, 36]));
 // returns 11
