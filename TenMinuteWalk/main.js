@@ -43,3 +43,33 @@ const isValidWalk = (walk) => {
 let walkTest = "nsnsnsnsns".split("");
 isValidWalk(walkTest);
 console.log(isValidWalk(walkTest));
+
+//best practice solution codewars
+
+function isValidWalkBestPractice(walk) {
+  let dx = 0;
+  let dy = 0;
+  let dt = walk.length;
+  // dx and dy represent how far we go on the x and y coordinate plain
+  // 'n' will add 1 to dx, 's' will subtract 1 from dx
+  // 'e' will add 1 to dy, 'w' will subtract 1 from dy
+
+  for (const direction of walk) {
+    switch (direction) {
+      case "n":
+        dy--;
+        break;
+      case "s":
+        dy++;
+        break;
+      case "w":
+        dx--;
+        break;
+      case "e":
+        dx++;
+        break;
+    }
+  }
+
+  return dt === 10 && dx === 0 && dy === 0;
+}
