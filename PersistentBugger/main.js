@@ -27,14 +27,10 @@ const persistence = (num) => {
   let persistenceNum = num;
   let counter = 0;
   while (persistenceNum > 9) {
-    persistenceNum +
-      "".split("").reduce((acc, splitNum) => {
-        acc *= +splitNum;
-        console.log(persistenceNum);
-      });
+    persistenceNum = String(persistenceNum)
+      .split("")
+      .reduce((acc, elem) => acc * Number(elem), 1);
     counter++;
-    if (persistenceNum < 10) break;
-    persistenceNum = acc;
   }
   return counter;
 };
