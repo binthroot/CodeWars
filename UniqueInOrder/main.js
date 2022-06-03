@@ -38,3 +38,9 @@ const UniqueInOrder = (iterable) => {
 };
 
 console.log(UniqueInOrder('111222333'));
+
+const uniqueInOrder = function (iterable) {
+  return [...iterable].filter((a, i) => a !== iterable[i - 1]);
+};
+
+//utilizes [...iterable] to deconstruct the array or string, and filter(element, index) to check the previous element in the array
