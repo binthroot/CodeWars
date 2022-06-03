@@ -14,6 +14,9 @@
 
 const tribonacci = (signature, n) => {
   newArray = [...signature];
+  if (n < 4) {
+    return newArray.slice(0, n);
+  }
   for (index = 3; newArray.length < 10; index++) {
     newArray.push(
       newArray[index - 1] + newArray[index - 2] + newArray[index - 3]
