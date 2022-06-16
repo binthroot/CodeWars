@@ -12,17 +12,33 @@
 //
 
 const moveZeros = (array) => {
-  countZeros = 0;
+  countZeros = array.length;
   let resultArray = array.filter((element) => {
     if (element !== 0) {
       countZeros++;
       return true;
     }
   });
+  countZeros = array.length - resultArray.length;
   for (let i = 0; i < countZeros; i++) {
     resultArray.push(0);
   }
   return resultArray;
 };
 
-console.log(moveZeros(['a', 'b', 0]));
+console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]));
+
+//optimal answer
+var moveZeros = function (arr) {
+  return arr
+    .filter(function (x) {
+      return x !== 0;
+    })
+    .concat(
+      arr.filter(function (x) {
+        return x === 0;
+      })
+    );
+};
+
+// uses .concat with two filtered arrays, one with 0's one without
