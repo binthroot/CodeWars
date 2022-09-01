@@ -20,3 +20,13 @@ const inArray = (array1, array2) => {
   newArray.sort();
   return newArray;
 };
+
+// CodeWars top
+
+function inArray(array1, array2) {
+  return array1.filter((a1) => array2.find((a2) => a2.match(a1))).sort();
+}
+
+// this filter array1
+// the callback uses another function find
+//  the find callback returns the element in array2
