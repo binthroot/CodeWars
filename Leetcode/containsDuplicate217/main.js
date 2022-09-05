@@ -9,3 +9,9 @@ const containsDuplicates = (array) => {
     }
     return false;
 }
+
+// valid anagram
+
+const validAnagram = (str1, str2) => {
+    
+}
