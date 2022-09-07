@@ -9,6 +9,8 @@ function expandedForm(num) {
       bigString.push(Math.floor(el) * tens);
       newSum = newSum % tens;
     }
+
+    if (el === 1) bigString.push(el);
   }
   return bigString.join(' + ');
 }
